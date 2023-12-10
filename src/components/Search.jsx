@@ -2,9 +2,9 @@ import loadingImg from "../assets/loading.svg";
 import enter from "../assets/enter-arrow.png";
 import { useEffect, useState } from "react";
 
-const Search = ({getWeather}) => {
+const Search = ({ getWeather }) => {
   const [userInput, setUserInput] = useState("");
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const getCities = async (e) => {
@@ -32,35 +32,43 @@ const Search = ({getWeather}) => {
 
   return (
     <div className="search">
-        <form onSubmit={getCities}>
-          <input
-            type="text"
-            placeholder="Search location..."
-            value={userInput}
-            onChange={(e) => {
-              setUserInput(e.target.value);
-            }}
-          />
-          {loading ? (
-            <img src={loadingImg} alt="loading icon" className="spinner" />
-          ) : (
-            userInput.trim().length !== 0 && (
-              <button type="submit" className="btn">
-                <img src={enter} alt="enter icon" />
-              </button>
-            )
-          )}
-        </form>
+      <form onSubmit={getCities}>
+        <input
+          type="text"
+          placeholder="Search location..."
+          value={userInput}
+          onChange={(e) => {
+            setUserInput(e.target.value);
+          }}
+        />
+        {loading ? (
+          <img src={loadingImg} alt="loading icon" className="spinner" />
+        ) : (
+          userInput.trim().length !== 0 && (
+            <button type="submit" className="btn">
+              <img src={enter} alt="enter icon" />
+            </button>
+          )
+        )}
+      </form>
 
-        <div className="results">
-          {cities &&
+      <div className="results">
+        {cities &&
+          (cities.length === 0 ? (
+            <div className="text-center p-2 text-light">No cities found, please try again</div>
+          ) : (
             cities.map((city) => (
-              <div className="fs-6" key={city.id} onClick={() => getWeather(city)}>
+              <div
+                className="fs-6 city"
+                key={city.id}
+                onClick={() => getWeather(city)}
+              >
                 {city.name}, {city.region} - {city.country}
               </div>
-            ))}
-        </div>
+            ))
+          ))}
       </div>
+    </div>
   );
 };
 

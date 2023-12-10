@@ -1,5 +1,3 @@
-// import weather from "../assets/weather/images/01d.png";
-// import weatherIcon from "../assets/weather/icons/01d.svg";
 const Weather = ({ data }) => {
   console.log(data);
   return (

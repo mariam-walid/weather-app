@@ -49,21 +49,19 @@
   background: #3b3b54;
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.4);
 }
-.results div {
-  /* background: #3b3b54; */
+.results .city {
   padding: 1rem 1.25rem;
   color: #fafafa;
-  /* font-size: 1rem; */
   font-style: normal;
   font-weight: 400;
   cursor: pointer;
 }
 
-.results div:hover {
+.results .city:hover {
   background: #1e1e29;
 }
 
-.results div:not(:first-child) {
+.results .city:not(:first-child) {
   border-top: 1px solid #1e1e29;
 }
 
@@ -108,28 +106,21 @@
 
 .weatherCard .time {
   color: #fafafa;
-  /* font-size: 1.25rem; */
   font-style: normal;
   font-weight: 700;
   line-height: 140%;
 }
 
 .temp {
-  color: var(--base-white, #fff);
-
-  /* Heading hg */
+  color: #fff;
   font-family: Nunito;
-  /* font-size: 4rem; */
   font-style: normal;
   font-weight: 600;
-  /* line-height: 100%;  */
 }
 .tempDescription {
   color: #fff;
   font-family: Nunito;
-  /* font-size: 1.25rem; */
   font-style: normal;
-  /* font-weight: 700; */
   line-height: 140%;
 }
 
